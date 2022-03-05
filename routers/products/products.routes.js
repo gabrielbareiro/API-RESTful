@@ -4,7 +4,6 @@ const router = express.Router();
 
 
 
-
 // leo el archivo de forma sincrona
 
 const products = fs.readFileSync('./data/products.txt', 'utf-8')
@@ -12,18 +11,26 @@ const products = fs.readFileSync('./data/products.txt', 'utf-8')
 const productsParse = JSON.parse(products)
 
 const getProducts = productsParse.map(p => p.title)
+  
 // Routers
 
-router.get('/',(req, res) => {
-    res.json(getProducts);
-    //console.log(getProducts)
-});
+// router.get('/',(req, res) => {
+//     res.json(getProducts);
+//     console.log(getProducts)
+// });
+
+
+// api/products/:id
 
 router.get('/:id',(req, res) => {
-    const { id } = req.body;
+    const { id } = req.params;
+    console.log(id);
     const getId = productsParse.find(num=> num.id === +id);
-    res.json(getId);
-    console.log(id)
+    if (!getId) {
+        return res.status(404).json({ success: false, error: `Product with id: ${id} does not exist!`});
+      }
+      return res.json({ success: true, result: getId });
+    
 });
 
 router.post('/',(req, res) => {

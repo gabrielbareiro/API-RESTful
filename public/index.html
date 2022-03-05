@@ -22,13 +22,13 @@
     </header>
     <main>
         <!-- mostrar todos los productos-->
-        <form class="container" action="api/products" method="get">
+        <!-- <form class="container" action="api/products" method="get">
             <div>
                 <label class="form-txt">Productos disponibles</label>
                 <button type="submit" class="btn btn-outline-primary">Mostrar</button>
-                <div id="get"></div>
+                <div id=""></div>
             </div>
-        </form>
+        </form> -->
         <!-- agregando productos-->
         <form action="api/products" method="post" class="container">
             <label for="" class="form-label">Agregar un producto</label>
@@ -40,22 +40,27 @@
                 <button type="submit" class="btn btn-outline-primary">Agregar</button>
             </div>
         </form>
-        <!-- Buscando un producto-->
-        <form class="container" action="api/products/" method="get">
+
+        <!-- Buscar un producto-->
+
+        <form class="container" action="api/products/" method="get" >
             
             <label for="" class="form-label">Buscar producto por ID</label>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="">ID</span>
-                <input type="text" name="id" class="form-control" id="" >
+                <input type="number" name="id" class="form-control" id="" >
                 <button type="submit" class="btn btn-outline-primary">Buscar</button>
             </div>
         </form>
-        <form action="api/products/" class="container">
+
+        <!-- Borrar un producto-->
+
+        <form action="api/products" class="container" method="delete">
             <label for="" class="form-label">Borrar un producto por ID</label>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="">ID</span>
-                <input type="text" class="form-control" id="" >
-                <button type="button" class="btn btn-outline-primary">Borrar</button>
+                <input type="text" name="id" class="form-control" id="" >
+                <button type="submit" class="btn btn-outline-primary">Borrar</button>
             </div>
         </form>
     </main>

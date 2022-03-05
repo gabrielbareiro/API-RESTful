@@ -1,10 +1,11 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs')
-
+const multer = require('multer')
 
 
 const apiRoutes = require('./routers/index')
+
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -17,6 +18,9 @@ app.use(express.static('public'))
 
 //routes
 app.use('/api', apiRoutes);
+app.get('/', (req, res) =>{
+    res.sendFile(__dirname + 'index.html')
+})
 
 
 const connectedServer = app.listen(PORT, ()=>{

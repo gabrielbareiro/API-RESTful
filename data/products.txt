@@ -38,5 +38,10 @@
     "title": "uva",
     "price": "55",
     "id": 8
+  },
+  {
+    "title": "manzana",
+    "price": "55",
+    "id": 9
   }
 ]
